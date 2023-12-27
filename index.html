@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cap</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Courier New', monospace;
+      background-color: #363636;
+    }
+
+    .Text {
+  text-align: center;
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  border: 2px solid #262626;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #3d3d3d;
+}
+
+    .Enabled {
+      color: green;
+    }
+
+    .Disabled {
+      color: red;
+    }
+
+    .Waiting {
+      color: yellow;
+    }
+    
+    .PreText {
+      color: white;
+    }
+
+.Enabled, .Disabled, .Waiting, .PreText {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Home-Button {
+            background-color: #242424;
+            color: white;
+            border: 2px solid #262626;
+  border-radius: 10px;
+  background-color: #3d3d3d;
+            padding: 20px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right:1%;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+            .Home-Button:hover {
+                background-color: #303030;
+            }
+
+  </style>
+</head>
+<body>
+  <button class="Home-Button" onclick="window.location.href='https://ji9sw.xyz'"><</button>
+  <div class="Text" id="StatusText">
+    <span id="PreText" class="PreText">waiting on </span><span id="CapsLockStatus" class="Waiting">input.</span>
+  </div>
+
+  <script>
+    var StatusText = document.getElementById('StatusText');
+    var PreText = document.getElementById('PreText');
+    var CapsLockStatus = document.getElementById('CapsLockStatus');
+
+    document.addEventListener("keydown", function(event) {
+      if (event.getModifierState("CapsLock")) {
+        PreText.textContent = 'caps lock is ';
+        CapsLockStatus.textContent = 'enabled.';
+        CapsLockStatus.className = 'Enabled';
+      } else {
+        PreText.textContent = 'caps lock is ';
+        CapsLockStatus.textContent = 'disabled.';
+        CapsLockStatus.className = 'Disabled';
+      }
+    });
+  </script>
+</body>
+</html>
