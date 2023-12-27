@@ -78,7 +78,13 @@
     var StatusText = document.getElementById('StatusText');
     var PreText = document.getElementById('PreText');
     var CapsLockStatus = document.getElementById('CapsLockStatus');
-
+    
+    if (navigator.userAgentData.mobile)
+  {
+    PreText.textContent = 'not available on';
+    CapsLockStatus.textContent = 'mobile.';
+    CapsLockStatus.className = 'Disabled';
+  }
     document.addEventListener("keydown", function(event) {
       if (event.getModifierState("CapsLock")) {
         PreText.textContent = 'caps lock is ';
